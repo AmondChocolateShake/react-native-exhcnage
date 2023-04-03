@@ -1,6 +1,6 @@
 
 import {React,useState} from 'react';
-import { View,Text, Button,StyleSheet,TextInput } from 'react-native';
+import { FlatList,View,Text, Button,StyleSheet,TextInput, Keyboard, FlatList } from 'react-native';
 import { Fragment } from 'react/cjs/react.production.min';
 
 
@@ -47,6 +47,11 @@ const styles=StyleSheet.create({
     width:100,
     height:40,
   },
+  nameInput:{
+    backgroundColor:"grey",
+    width:120,
+    height:40,
+  },
   container:{
     
     justifyContent:"space-around"
@@ -57,29 +62,36 @@ const styles=StyleSheet.create({
 
 
 export default function App() {
+  const[name,setName]=useState("");
   const[total,setTotal]=useState(0);
   const[euros,setEuros]=useState(0);
   const[won,setWon]=useState(0);
-  let [hello,setHello]=useState(0);
 
   return (
     <Fragment>
       <View style={styles.lay1}>
-        <View style={styles.listCon}>
-
-        </View>
+        <FlatList 
+        style={styles.listCon}
+        
+        />
         <View style={styles.btnCon}>
           <View>            
-            <TextInput value="nom de la donnee"/>
+            <TextInput 
+            placeholder="nom de la donnee"
+            style={styles.nameInput}
+            value={name}
+            onChangeText={setName}
+            
+            />
             <Button title="insertion" onPress={()=>{
-              setTotal(total+1);
+              setName("");
+              Keyboard.dismiss();
             }}></Button>
-            <Button title="hello" onPress={()=>{setHello(hello+1)}}></Button>
           </View>
           
           <View style={styles.container}>
-            <TextInput style={styles.euroInput} value="EUROS" />
-            <TextInput style={styles.wonInput} value="WON"/>
+            <TextInput style={styles.euroInput} placeholder="EUROS" />
+            <TextInput style={styles.wonInput} placeholder="WON"/>
           </View>
         </View>
       </View>
