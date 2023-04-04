@@ -1,8 +1,8 @@
 
 import {React,useState} from 'react';
-import { FlatList,View,Text, Button,StyleSheet,TextInput, Keyboard, FlatList } from 'react-native';
+import {View,Text, Button,StyleSheet,TextInput, Keyboard, FlatList } from 'react-native';
 import { Fragment } from 'react/cjs/react.production.min';
-
+import ListE from './components/ListE';
 
 const styles=StyleSheet.create({
   lay1:{
@@ -17,6 +17,7 @@ const styles=StyleSheet.create({
   },
   listCon:{
     flex:6,
+
     backgroundColor:"blue",
   },
   btnCon:{
@@ -53,63 +54,76 @@ const styles=StyleSheet.create({
     height:40,
   },
   container:{
+    flex:1,
+    height:300,
+    justifyContent:"space-around",
     
-    justifyContent:"space-around"
   }
 
 })
 
 
 
-export default function App() {
-  const[name,setName]=useState("");
-  const[total,setTotal]=useState(0);
-  const[euros,setEuros]=useState(0);
-  const[won,setWon]=useState(0);
-
-  return (
-    <Fragment>
-      <View style={styles.lay1}>
-        <FlatList 
-        style={styles.listCon}
-        
-        />
-        <View style={styles.btnCon}>
-          <View>            
-            <TextInput 
-            placeholder="nom de la donnee"
-            style={styles.nameInput}
-            value={name}
-            onChangeText={setName}
-            
-            />
-            <Button title="insertion" onPress={()=>{
-              setName("");
-              Keyboard.dismiss();
-            }}></Button>
-          </View>
-          
-          <View style={styles.container}>
-            <TextInput style={styles.euroInput} placeholder="EUROS" />
-            <TextInput style={styles.wonInput} placeholder="WON"/>
-          </View>
-        </View>
-      </View>
 
 
-      <View style={styles.lay2}>
-        <View style={styles.total}>
-          <Text>Total  : </Text>
-          <Text>{total}</Text>
-          <Text>{hello}</Text>
-        </View>
-        <View style={styles.price}>
-          {/* <Text>EUROS : {euros}</Text> */}
-          {/* <Text>WON : {won}</Text> */}
-        </View>
-      </View>
-    </Fragment>
+export default function App(){
+
+
+  return(
+    <ListE></ListE>
   );
 }
+
+// export default function App() {
+//   const[name,setName]=useState("");
+//   const[price,setPrice]=useState(0);
+//   const[total,setTotal]=useState(0);
+//   const[euros,setEuros]=useState(0);
+//   const[won,setWon]=useState(0);
+  
+//   return (
+//     <Fragment>
+//       <View style={styles.lay1}>
+//         <View style={styles.listCon}>
+//           <FlatList 
+          
+//           />
+//         </View>
+
+//         <View style={styles.btnCon}>
+//           <View>            
+//             <TextInput 
+//             placeholder="nom de la donnee"
+//             style={styles.nameInput}
+//             value={name}
+//             onChangeText={setName}
+//             />
+//             <Button title="insertion" onPress={()=>{
+//               setName("");
+//               Keyboard.dismiss();
+//             }}></Button>
+//           </View>
+          
+//           <View style={styles.container}>
+//             <TextInput style={styles.euroInput} placeholder="EUROS" />
+//             <TextInput style={styles.wonInput} placeholder="WON"/>
+//           </View>
+//         </View>
+//       </View>
+
+
+//       <View style={styles.lay2}>
+//         <View style={styles.total}>
+//           <Text>Total  : </Text>
+//           <Text>{total}</Text>
+//         </View>
+//         <View style={styles.price}>
+//           {/* <Text>EUROS : {euros}</Text> */}
+//           {/* <Text>WON : {won}</Text> */}
+//         </View>
+//       </View>
+//     </Fragment>
+//   );
+// }
 
 
