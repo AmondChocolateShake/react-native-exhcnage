@@ -67,11 +67,22 @@ const styles=StyleSheet.create({
 
 
 export default function App(){
-
+  const names=["kim","dong","ju"];
 
   return(
-    <ListE></ListE>
-  );
+
+    <View>
+      {names.map((item,index)=>(
+        <ListE name={item}></ListE>
+      ))
+
+      
+
+      }
+      
+    </View>
+
+    );
 }
 
 // export default function App() {
